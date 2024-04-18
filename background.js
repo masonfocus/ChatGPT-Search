@@ -1,15 +1,15 @@
-browser.runtime.onInstalled.addListener((details) => {
+chrome.runtime.onInstalled.addListener((details) => {
     if (details.reason === 'install') {
         openGuidePage();
     }
 });
 
-browser.browserAction.onClicked.addListener(() => {
+chrome.action.onClicked.addListener(() => {
     openGuidePage();
 });
 
 function openGuidePage() {
-    browser.tabs.create({
-        url: browser.runtime.getURL('addsearch.html'),
+    chrome.tabs.create({
+        url: chrome.runtime.getURL('addsearch.html')
     });
 }
